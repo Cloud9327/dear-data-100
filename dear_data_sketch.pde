@@ -5,7 +5,6 @@ void setup() {
   background(250, 245, 235);
   noStroke();
 
-  // Try comma-separated first. If the columns didn't split, try tabs.
   table = loadTable("Data.csv", "header, csv");
   if (table.getColumnCount() < 8) {
     table = loadTable("Data.csv", "header, tsv");
@@ -20,16 +19,27 @@ void setup() {
     int intensity = row.getInt("Intensity");
 
     float x = gap * (i + 1);
-    float y;
-
-    if (sender.equals("human")) {
-      fill(230, 120, 90, 200);   // orange = human signal
-      y = 170;
-    } else {
-      fill(80, 150, 200, 200);   // blue = dog signal
-      y = 330;
-    }
+    float y = getY(sender);          // uses the return method
+    fill(getColour(sender));         // uses the return method
 
     ellipse(x, y, intensity * 5, intensity * 5);
+  }
+}
+
+// Returns the y position for a sender
+float getY(String sender) {
+  if (sender.equals("human")) {
+    return 170;
+  } else {
+    return 330;
+  }
+}
+
+// Returns the fill colour for a sender
+color getColour(String sender) {
+  if (sender.equals("human")) {
+    return color(230, 120, 90, 200);   // orange = human
+  } else {
+    return color(80, 150, 200, 200);   // blue = dog
   }
 }
