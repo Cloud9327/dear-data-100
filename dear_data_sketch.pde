@@ -27,8 +27,9 @@ void setup() {
 //I call it in setup() with float y = getY(sender);, and the returned value is stored in y and used to position each circle.
 
     float x = gap * (i + 1);
-                                    // uses the return method ,You can tell they’re return methods because they have a return type (float, color) instead of void, 
-     float y = getY(sender);         //  and they use return to hand a value back. They’re called in setup() here :                                
+
+    float y = getY(sender);          // uses the return method ,You can tell they’re return methods because they have a return type (float, color) instead of void, 
+                                     //  and they use return to hand a value back. They’re called in setup() here :                                
     fill(getColour(sender));         // uses the return method
 
     ellipse(x, y, intensity * 5, intensity * 5);
