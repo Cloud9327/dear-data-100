@@ -2,6 +2,14 @@
 //do something (a void method) or give a value back (a return method). Using methods stops me repeating code and makes the 
 //program easier to read and change.
 
+
+//It’s a Processing sketch that reads a CSV file (Data.csv) and turns each row into a circle.
+//Orange circles (top row) = the human; blue circles (bottom row) = the dog.
+//Left to right = the order of events, like a timeline.
+//Circle size = how intense that moment was.
+//Overall, it shows who “speaks” more, how the back-and-forth flows, and where the intense moments happen.
+//The code uses helper methods (getY and getColour) that return the position and colour for each sender.
+
 Table table;
 
 void setup() {
